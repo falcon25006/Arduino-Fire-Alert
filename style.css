@@ -1,0 +1,34 @@
+/* Header */
+.header {
+    background-color: #000;
+    color: #f38612;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5em;
+}
+
+/* Carousel Images */
+.carousel img {
+    border-radius: 20px;
+}
+/* Carousel Styling */
+.carousel img {
+    height: 500px; /* Réduit la hauteur des images */
+    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse l'espace sans déformation */
+    border-radius: 15px;
+}
+
+.carousel {
+    max-height: 600px; /* Limite la hauteur totale du carousel */
+    overflow: hidden; /* Cache tout débordement */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        font-size: 1.2em;
+    }
+    video {
+        height: auto;
+    }
+}

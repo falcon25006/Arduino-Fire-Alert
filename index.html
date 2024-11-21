@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Fire Alert</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>ARDUINO FIRE ALERT</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+        <section>
+            <h2>Qu'est-ce que l'Arduino Fire Alert ?</h2>
+            <p>
+                Le projet Fire Alert est une solution innovante destinée à améliorer la sécurité domestique. Accessible et efficace,
+                ce projet vise à prévenir les accidents liés aux gaz tels que le butane, très répandus dans nos foyers, tout en
+                sensibilisant le grand public aux risques associés.
+            </p>
+        </section>
+
+        <section>
+            <h2>Comment ça marche ?</h2>
+            <p>Le système repose sur un boîtier imprimé en PLA intégrant :</p>
+            <ul>
+                <li>Un microcontrôleur Arduino Uno.</li>
+                <li>Des capteurs de gaz (MQ-5) capables de détecter des substances telles que le butane, le méthane et le GPL.</li>
+                <li>Un buzzer et une LED RGB pour alerter en cas de dépassement de seuils critiques.</li>
+            </ul>
+            <p>
+                Les données collectées sont comparées à des seuils dynamiques afin de déclencher une alerte lorsque des
+                concentrations dangereuses sont détectées.
+            </p>
+        </section>
+
+        <section>
+            <h2>Étalonnage dynamique</h2>
+            <p>
+                L’étalonnage est essentiel pour garantir la précision des capteurs, notamment le capteur MQ-5, dont la sensibilité
+                repose sur l'oxyde d’étain (SnO2). Cependant, ce matériau se dégrade avec le temps en raison de la chaleur continue
+                et des conditions climatiques. C’est pourquoi une calibration dynamique est nécessaire. Elle ajuste automatiquement
+                les seuils en fonction des variations environnementales et de la dégradation du capteur, garantissant une détection
+                fiable même après une utilisation prolongée.
+            </p>
+            <h3>Fonction de calibrage automatique</h3>
+            <pre><code>
+void calibration() {
+    Serial.println("Calibration en cours...");
+    float valeurMQ5calibre = analogRead(ncapteur);
+    seuilgaz = valeurMQ5calibre * 1.1;
+    Serial.print("Nouveau seuil gaz : ");
+    Serial.println(seuilgaz);
+    Serial.println("Calibration terminée.");
+}
+            </code></pre>
+        </section>
+
+        <!-- Carousel -->
+        <section>
+            <h2>Images du projet</h2>
+            <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="fire2.jpg" class="d-block w-100" alt="Fire Alert Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="fire1.jpg" class="d-block w-100" alt="Fire Alert Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="fire3.jpg" class="d-block w-100" alt="Fire Alert Image 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédend </span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section>
+            <h2>Vidéos explicatives</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <video controls class="w-100">
+                        <source src="videos/demo1.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas les vidéos HTML5.
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video controls class="w-100">
+                        <source src="videos/demo2.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas les vidéos HTML5.
+                    </video>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
